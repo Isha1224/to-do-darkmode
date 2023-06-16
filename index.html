@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .todo-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .todo-list li {
+      margin-bottom: 10px;
+    }
+
+    .todo-list li input[type="checkbox"] {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .todo-list li.completed span {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do App</h1>
+    <ul class="todo-list">
+      <li>
+        <input type="checkbox" id="task1">
+        <span>Task 1</span>
+      </li>
+      <li>
+        <input type="checkbox" id="task2">
+        <span>Task 2</span>
+      </li>
+      <li>
+        <input type="checkbox" id="task3">
+        <span>Task 3</span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const todoList = document.querySelectorAll('.todo-list li');
+
+    todoList.forEach(item => {
+      const checkbox = item.querySelector('input[type="checkbox"]');
+      const taskText = item.querySelector('span');
+
+      checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+          taskText.classList.add('completed');
+        } else {
+          taskText.classList.remove('completed');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
